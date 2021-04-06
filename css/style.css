@@ -70,7 +70,7 @@ body {
   text-transform: uppercase;
   font-weight: 700;
   display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  background-image: linear-gradient(to right, #3cec1a, #055135);
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
@@ -261,7 +261,7 @@ body {
     .card__side--back {
       transform: rotateY(180deg); }
       .card__side--back-primary {
-        background: linear-gradient(to right bottom, #7ed56f, #28b485); }
+        background: linear-gradient(to right bottom, #3cec1a, #055135); }
       .card__side--back-secondary {
         background: linear-gradient(to right bottom, #ffb900, #ff7730); }
       .card__side--back-tertiary {
@@ -279,7 +279,7 @@ body {
     .card__picture--1 {
       background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url(../img/nat-6.jpg); }
     .card__picture--2 {
-      background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url(../img/nat-5.jpg); }
+      background-image: linear-gradient(to right bottom, #3cec1a, #055135), url(../img/nat-5.jpg); }
     .card__picture--3 {
       background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url(../img/nat-7.jpg); }
   .card__heading {
@@ -299,7 +299,7 @@ body {
     .card__heading-span--1 {
       background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)), url(../img/nat-6.jpg); }
     .card__heading-span--2 {
-      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)), url(../img/nat-5.jpg); }
+      background-image: linear-gradient(to right bottom, rgba(60, 236, 26, 0.85), rgba(5, 81, 53, 0.85)), url(../img/nat-5.jpg); }
     .card__heading-span--3 {
       background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85)), url(../img/nat-7.jpg); }
   .card__details {
@@ -371,7 +371,7 @@ body {
     font-size: 6rem;
     margin-bottom: .5rem;
     display: inline-block;
-    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    background-image: linear-gradient(to right, #3cec1a, #055135);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent; }
@@ -457,7 +457,7 @@ body {
 
 .header {
   height: 90vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/hero.jpg");
+  background-image: linear-gradient(to right bottom, rgba(60, 236, 26, 0.8), rgba(5, 81, 53, 0.8)), url("../img/hero.jpg");
   background-size: cover;
   background-position: top;
   -webkit-clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
@@ -546,6 +546,117 @@ body {
       display: table;
       clear: both; }
 
+.navigation__checkbox {
+  display: none; }
+
+.navigation__button {
+  background: white;
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6rem;
+  right: 6rem;
+  z-index: 2000;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+  text-align: center;
+  cursor: pointer; }
+
+.navigation__background {
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 6.5rem;
+  right: 6.5rem;
+  z-index: 1000;
+  background-image: radial-gradient(#3cec1a, #055135);
+  transition: transform 0.8s cubic-bezier(0.83, 0, 0.17, 1); }
+
+.navigation__nav {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 1500;
+  opacity: 0;
+  width: 0;
+  transition: all 0.8s cubic-bezier(0.68, -0.6, 0.32, 1.6); }
+
+.navigation__list {
+  list-style: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  width: 100%; }
+
+.navigation__item {
+  margin: 1rem; }
+
+.navigation__link:link, .navigation__link:visited {
+  display: inline-block;
+  font-size: 3rem;
+  font-weight: 300;
+  padding: 1rem 2rem;
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-image: linear-gradient(120deg, transparent 0%, transparent 50%, #fff 50%);
+  background-size: 220%;
+  transition: all .4s; }
+  .navigation__link:link span, .navigation__link:visited span {
+    margin-right: 1.5rem;
+    display: inline-block; }
+
+.navigation__link:active, .navigation__link:hover {
+  background-position: 100%;
+  color: #7ed56f;
+  transform: translateX(1rem); }
+
+.navigation__checkbox:checked ~ .navigation__background {
+  transform: scale(50); }
+
+.navigation__checkbox:checked ~ .navigation__nav {
+  opacity: 1;
+  width: 100%; }
+
+.navigation__icon {
+  position: relative;
+  margin-top: 3.5rem; }
+  .navigation__icon, .navigation__icon::before, .navigation__icon::after {
+    width: 3rem;
+    height: 2px;
+    background-color: #333;
+    display: inline-block; }
+  .navigation__icon::before, .navigation__icon::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    transition: all .2s; }
+  .navigation__icon::after {
+    top: .8rem; }
+  .navigation__icon::before {
+    top: -.8rem; }
+
+.navigation__button:hover .navigation__icon::before {
+  top: -1rem; }
+
+.navigation__button:hover .navigation__icon::after {
+  top: 1rem; }
+
+.navigation__checkbox:checked ~ .navigation__button > .navigation__icon {
+  background-color: transparent; }
+
+.navigation__checkbox:checked ~ .navigation__button > .navigation__icon::after {
+  top: 0;
+  transform: rotate(135deg); }
+
+.navigation__checkbox:checked ~ .navigation__button > .navigation__icon::before {
+  top: 0;
+  transform: rotate(-135deg); }
+
 .section-about {
   background: #f7f7f7;
   padding: 25rem 0;
@@ -554,7 +665,7 @@ body {
 .section-features {
   padding: 20rem 0;
   margin-top: -10rem;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../../img/nat-4.jpg");
+  background-image: linear-gradient(to right bottom, rgba(60, 236, 26, 0.8), rgba(5, 81, 53, 0.8)), url("../img/nat-4.jpg");
   background-size: cover;
   background-position: top;
   transform: skewY(-7deg); }
@@ -572,7 +683,7 @@ body {
 
 .section-book {
   padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+  background-image: linear-gradient(to right bottom, #3cec1a, #055135); }
 
 .book {
   background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url("../img/nat-10.jpg");
